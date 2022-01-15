@@ -1,27 +1,42 @@
-import AboutSection from "../components/home/AboutSection";
-import HeroSection from "../components/home/HeroSection";
-import Lorem from "../components/home/Lorem";
-import NewsSection from "../components/home/NewsSection";
-import UpcomingEvent from "../components/home/UpcomingEvent";
+import Head from "next/head";
+
 import Layout from "../components/Layout";
+import Hero from "../components/home/Hero";
+import News from "../components/home/News";
+import About from "../components/home/About";
+import Events from "../components/home/Events";
 import Widget from "../components/Widget";
+import Lorem from "../components/home/Lorem";
+
+import Section from "../components/Section";
+import Team from "../components/home/Team";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import Achievments from "../components/home/Achievements";
 
 export default function Home() {
   return (
     <Layout pageTitle={"Home"}>
-      <main className="flex flex-col justify-center items-center space-y-14 overflow-hidden">
-        <HeroSection />
-        <NewsSection />
-        <AboutSection />
-        <UpcomingEvent />
-        {/* <div className="h-94 g-bg-test p-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
-          debitis. Amet fugit nesciunt eum nemo, alias laboriosam dignissimos
-          consectetur quasi laborum fugiat ex cum minima? Ducimus earum saepe
-          quas vel.
-        </div> */}
-        {/* <Widget /> */}
-      </main>
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <Hero />
+      <News />
+      <About />
+      <Team />
+      <Events />
+      <Achievments />
+      <Widget />
     </Layout>
   );
 }

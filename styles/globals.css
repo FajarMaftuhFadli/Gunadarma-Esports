@@ -7,30 +7,32 @@
     @apply g-bg1;
   }
 
+  .g-px {
+    @apply px-4 sm:px-8 md:px-12;
+  }
+
   .g-h1 {
-    @apply font-black text-5xl;
+    @apply text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl;
   }
 
   .g-h2 {
-    @apply font-bold text-4xl;
+    @apply font-bold text-4xl sm:text-5xl md:text-6xl;
   }
 
-  .g-txt-c1 {
-    @apply text-gray-100;
+  .g-text-c1 {
+    @apply text-[#0e1420];
   }
 
-  .g-txt-c2 {
+  .g-text-c2 {
     @apply text-[#a339e6];
-    /* @apply text-[#741979]; */
   }
 
-  .g-txt-c3 {
+  .g-text-c3 {
     @apply text-orange-500;
-    /* @apply text-[#741979]; */
   }
 
-  .g-px {
-    @apply px-4 sm:px-5;
+  .g-text-c4 {
+    @apply text-gray-100;
   }
 
   .g-bg1 {
@@ -45,7 +47,94 @@
     @apply bg-orange-500;
   }
 
+  .g-bg4 {
+    @apply bg-gray-100;
+  }
+
   .g-max-w {
     @apply w-full max-w-5xl mx-auto;
   }
+
+  .hover-slide {
+    @apply relative overflow-hidden before:absolute before:top-0 before:-left-0 before:-right-6 before:bottom-0 before:scale-x-0 hover:before:scale-x-100 before:-z-10 before:origin-left before:transition-transform before:bg-white/10 before:duration-200 before:-skew-x-12;
+  }
+
+  .swiper-btn-prev,
+  .swiper-btn-next {
+    @apply g-bg4 -skew-x-12 hover:g-bg2 transition-colors active:bg-gray-100/20;
+  }
+
+  .swiper-btn-disabled {
+    @apply bg-gray-100/20 disabled:hover:bg-gray-100/20;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-3;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-[#0e1420];
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-800;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-700;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    @apply bg-slate-700/80;
+  }
+
+  .text-outline-only {
+    @apply text-[7rem] font-black text-transparent leading-none absolute text-right -top-14 right-2 -z-10 sm:text-[9rem] sm:-top-20 md:text-[11rem] md:-top-24 lg:text-[13rem] lg:-top-[7.5rem];
+  }
+
+  .btn-orange {
+    @apply g-bg3 p-2 font-semibold border-2 border-orange-500 hover:bg-white hover:g-text-c3 md:opacity-0 group-hover:opacity-100;
+  }
+}
+
+.trans-gray {
+  transition-property: filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.g-h1 {
+  font-family: "Roboto", sans-serif;
+}
+
+.text-outline-only {
+  -webkit-text-stroke-color: #1d273888;
+  -webkit-text-stroke-width: 1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+span,
+li,
+button {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.btn-orange {
+  transition-property: background-color, opacity, color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
