@@ -9,14 +9,13 @@ export default function Team() {
   return (
     <Section>
       <h2 className="g-h2 g-text-c2">TEAM</h2>
-      <span className="mb-5 g-text-c4 text-lg">Meet Our Squads</span>
+      <span className="g-text-c4 text-lg">Meet Our Squads</span>
       <Slide />
       <div className="w-1/2 flex justify-between relative items-center mx-auto mt-5">
         <div
           className="!h-[0.1rem] !bg-gray-100/20 paginationTeam !relative 
         "
         ></div>
-        {/* !ml-[0.15rem] !mr-10 */}
       </div>
 
       <span className="text-outline-only">TEAM</span>
@@ -30,7 +29,6 @@ function Slide() {
     spaceBetween: 20,
     slidesPerView: "auto",
     grabCursor: true,
-    // centeredSlides: true,
     pagination: {
       el: ".paginationTeam",
       type: "progressbar",
@@ -38,23 +36,7 @@ function Slide() {
         return `<span class="${progressbarFillClass} !bg-gray-100"></span>`;
       },
     },
-    className: "-skew-x-6 !mx-4 sm:!mx-8 md:!mx-12",
-    // freeMode: {
-    //   enabled: true,
-    //   sticky: true,
-    // },
-    // onSwiper={(swiper) => console.log(swiper)}
-    // onSlideChange={() => console.log("slide change")}
-    // breakpoints: {
-    //   640: {
-    //     // slidesPerView: 3,
-    //     // spaceBetween: 40,
-    //   },
-    //   1024: {
-    //     slidesPerView: 4,
-    //     spaceBetween: 10,
-    //   },
-    // },
+    className: "-skew-x-6 !mx-4 sm:!mx-8 md:!mx-12 mt-5",
   };
 
   return (
