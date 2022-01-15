@@ -33,6 +33,7 @@ export default function About() {
             objectFit="cover"
             priority
             className=""
+            alt="test"
           />
         </div>
       </div>

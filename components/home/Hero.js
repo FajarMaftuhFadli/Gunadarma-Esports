@@ -6,7 +6,13 @@ export default function Hero() {
   return (
     <section className="relative w-full">
       <div className="relative w-full h-[25rem] md:h-[27rem] lg:h-[29rem] xl:h-[33rem]">
-        <Image src={hero_image} layout="fill" objectFit="cover" priority />
+        <Image
+          src={hero_image}
+          layout="fill"
+          objectFit="cover"
+          priority
+          alt="test"
+        />
       </div>
       <div className="absolute top-0 flex flex-col justify-end items-center h-full w-full text-center g-text-c4 g-px bg-blue-900/20">
         <div className="absolute top-[25%]">

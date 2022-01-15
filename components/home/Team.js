@@ -73,6 +73,7 @@ function Slide() {
                   layout="fill"
                   objectFit="cover"
                   priority
+                  alt="test"
                   className=""
                 />
               </div>

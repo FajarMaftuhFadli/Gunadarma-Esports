@@ -19,7 +19,7 @@ export default function Events() {
               <div>
                 <div className="flex space-x-1">
                   <div className="w-5 flex-none">
-                    <Image src={logo_MLBB} priority />
+                    <Image src={logo_MLBB} priority alt="test" />
                   </div>
                   <span className="font-semibold">MOBILE LEGEND</span>
                 </div>

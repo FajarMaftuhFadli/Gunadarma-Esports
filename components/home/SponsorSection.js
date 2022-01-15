@@ -4,7 +4,7 @@ export default function SponsorSection() {
       {Array(3)
         .fill()
         .map((v, i) => (
-          <div className="uppercase p-1 rounded-sm text-white">
+          <div key={i} className="uppercase p-1 rounded-sm text-white">
             Sponsor {++i}
           </div>
         ))}

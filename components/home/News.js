@@ -87,6 +87,7 @@ function Slide() {
                 objectFit="cover"
                 priority
                 className="group-hover:scale-110 transition-transform duration-700 ease-out"
+                alt="test"
               />
               <div className="z-20 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  opacity-0 btn-orange tracking-wide">
                 READ
