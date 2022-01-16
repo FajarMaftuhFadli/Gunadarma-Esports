@@ -14,6 +14,7 @@ import Team from "../components/home/Team";
 import "swiper/css";
 import "swiper/css/pagination";
 import Achievments from "../components/home/Achievements";
+import Content from "../components/home/Content";
 
 export default function Home() {
   return (
@@ -36,6 +37,10 @@ export default function Home() {
       <Team />
       <Events />
       <Achievments />
+      <div className="w-full bg-[#131c2c] -skew-y-6 py-20">
+        <Content />
+        {/* <div className="w-full h-60 bg-red-200 skew-y-6"></div> */}
+      </div>
       <Widget />
     </Layout>
   );
