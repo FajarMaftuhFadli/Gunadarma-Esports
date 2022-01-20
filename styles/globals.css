@@ -116,6 +116,11 @@
   -webkit-text-stroke-width: 1px;
 }
 
+.text-outline {
+  -webkit-text-stroke-color: #e5e7ebaa;
+  -webkit-text-stroke-width: 1px;
+}
+
 h1,
 h2,
 h3,

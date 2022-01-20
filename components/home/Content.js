@@ -3,7 +3,7 @@ import Section from "../Section";
 export default function Content() {
   return (
     <Section>
-      <div className="skew-y-6 flex flex-col items-center ">
+      <div className="flex flex-col items-center mb-10">
         <h2 className="g-h2 g-text-c2 mb-5">VIDEOS</h2>
         <div className="youtube-video-container mb-4">
           <iframe
