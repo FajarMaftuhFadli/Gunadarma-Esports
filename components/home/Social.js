@@ -35,7 +35,7 @@ export default function Social() {
           <ol className="flex justify-center space-x-4">
             {social.map((v, i) => (
               <li key={i}>
-                <a href={v.url} target="_blank">
+                <a href={v.url} target="_blank" rel="noreferrer">
                   {v.el({ className })}
                 </a>
               </li>

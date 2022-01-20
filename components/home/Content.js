@@ -64,7 +64,14 @@ export default function Content() {
             ></iframe>
           </div>
         </div>
-        <button className="btn-orange g-text-c4">WATCH US ON YOUTUBE</button>
+        <a
+          href="https://www.youtube.com/channel/UCl4-RGEW0A9BV9bTR8sjfLA"
+          className="btn-orange g-text-c4"
+          target="_blank"
+          rel="noreferrer"
+        >
+          WATCH US ON YOUTUBE
+        </a>
       </div>
     </Section>
   );
