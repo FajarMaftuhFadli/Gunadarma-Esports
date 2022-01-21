@@ -18,7 +18,7 @@ export default function Content() {
     <Section>
       <div className="flex flex-col items-center mb-10">
         <h2 className="g-h2 g-text-c2 mb-5">VIDEOS</h2>
-        <div className="w-full grid grid-cols-2 gap-4">
+        <div className="w-full grid grid-cols-2 gap-4 p-4 lg:grid-cols-4 bg-gray-900">
           {videoId.map((v, i) => (
             <Video index={i} key={i} id={v} setshowVid={setshowVid} />
           ))}
@@ -66,7 +66,7 @@ function ShowVid({ showVid, setshowVid }) {
       className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-gray-900/95 g-px flex justify-center items-center"
       onClick={turnOff}
     >
-      <div className="youtube-video-container bg-black">
+      <div className="youtube-video-container bg-black g-max-w">
         <iframe
           width="560"
           height="315"
@@ -89,8 +89,8 @@ function Video({ id, setshowVid, index }) {
   return (
     <button
       // className="col-span-1 "
-      className={`relative group bg-gray-900 ${
-        index == 0 ? "col-span-2" : "col-span-1"
+      className={`relative group bg-black ${
+        index == 0 ? "col-span-2 lg:row-span-2" : "col-span-1"
       }`}
       onClick={showVid}
     >
