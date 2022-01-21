@@ -18,7 +18,7 @@ export default function Content() {
     <Section>
       <div className="flex flex-col items-center mb-10">
         <h2 className="g-h2 g-text-c2 mb-5">VIDEOS</h2>
-        <div className="w-full grid grid-cols-2 gap-4 p-4 lg:grid-cols-4 bg-gray-900">
+        <div className="w-full grid grid-cols-2 gap-4 sm:gap-8 md:gap-12 lg:gap-4 lg:grid-cols-4">
           {videoId.map((v, i) => (
             <Video index={i} key={i} id={v} setshowVid={setshowVid} />
           ))}
@@ -89,17 +89,18 @@ function Video({ id, setshowVid, index }) {
   return (
     <button
       // className="col-span-1 "
-      className={`relative group bg-black ${
+      className={`w-full pt-[56.25%] relative group bg-gray-900 ${
         index == 0 ? "col-span-2 lg:row-span-2" : "col-span-1"
       }`}
       onClick={showVid}
+      //56,2
     >
       <Image
         src={`https://i3.ytimg.com/vi/${id}/maxresdefault.jpg`}
-        // layout="fill"
-        width={1280}
-        height={720}
-        // objectFit="cover"
+        layout="fill"
+        // width={1280}
+        // height={720}
+        objectFit="cover"
         // priority
         alt={id}
       />
