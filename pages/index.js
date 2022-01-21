@@ -42,7 +42,7 @@ export default function Home() {
         <Content />
         <Social />
       </div>
-      <Widget />
+      {/* <Widget /> */}
     </Layout>
   );
 }
