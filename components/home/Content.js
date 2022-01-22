@@ -86,22 +86,20 @@ function Video({ id, setshowVid, index }) {
     setshowVid({ isShow: true, vidId: id.toString() });
   }, [setshowVid]);
 
+  const priority = index == 0 ? true : false;
+
   return (
     <button
-      // className="col-span-1 "
       className={`w-full pt-[56.25%] relative group bg-gray-900 ${
         index == 0 ? "col-span-2 lg:row-span-2" : "col-span-1"
       }`}
       onClick={showVid}
-      //56,2
     >
       <Image
         src={`https://i3.ytimg.com/vi/${id}/maxresdefault.jpg`}
         layout="fill"
-        // width={1280}
-        // height={720}
         objectFit="cover"
-        // priority
+        priority={priority}
         alt={id}
       />
       <div className="hover:scale-110 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 opacity-50 bg-gray-900 ring-2 ring-gray-200 group-hover:opacity-100 transition-all overflow-hidden">
