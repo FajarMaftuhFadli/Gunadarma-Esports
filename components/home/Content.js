@@ -25,13 +25,7 @@ export default function Content() {
         <h2 className="g-h2 g-text-c2 mb-5">VIDEOS</h2>
         <div className="w-full grid grid-cols-2 gap-4 sm:gap-8 md:gap-12 lg:gap-4 lg:grid-cols-4">
           {videoId.map((v, i) => (
-            <Video
-              index={i}
-              key={i}
-              id={v}
-              showVid={showVid}
-              setshowVid={setshowVid}
-            />
+            <Video index={i} key={i} id={v} setshowVid={setshowVid} />
           ))}
         </div>
         <a
@@ -79,7 +73,7 @@ function Play({ className }) {
 function ShowVid({ showVid, setshowVid }) {
   const turnOff = useCallback(() => {
     setshowVid({ isShow: false, vidId: "" });
-  }, [showVid, setshowVid]);
+  }, [setshowVid]);
 
   return (
     <div
@@ -105,10 +99,10 @@ function ShowVid({ showVid, setshowVid }) {
  * It creates a button that when clicked, will show the video.
  * @returns A button that when clicked, sets the state of the video to be shown.
  */
-function Video({ id, showVid, setshowVid, index }) {
+function Video({ id, setshowVid, index }) {
   const showVideo = useCallback(() => {
     setshowVid({ isShow: true, vidId: id.toString() });
-  }, [id, showVid, setshowVid]);
+  }, [id, setshowVid]);
 
   const priority = index == 0 ? true : false;
 
