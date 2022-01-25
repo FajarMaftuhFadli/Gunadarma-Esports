@@ -1,3 +1,4 @@
+import Anchor from "../Anchor";
 import Discord from "../social-icons/Discord";
 import Instagram from "../social-icons/Instagram";
 import Line from "../social-icons/Line";
@@ -43,6 +44,7 @@ export default function Social() {
           </ol>
         </div>
       </div>
+      <Anchor id="CONTACT" />
     </section>
   );
 }

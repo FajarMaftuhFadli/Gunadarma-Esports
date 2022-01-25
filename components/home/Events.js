@@ -3,6 +3,7 @@ import Chevron_double_right from "./Chevron_double_right";
 
 import Image from "next/image";
 import logo_MLBB from "../../images/game-logo/MLBB.svg";
+import Anchor from "../Anchor";
 
 export default function Events() {
   return (
@@ -74,6 +75,7 @@ export default function Events() {
         <Chevron_double_right />
       </div>
       <span className="text-outline-only">EVENTS</span>
+      <Anchor id="EVENTS" />
     </Section>
   );
 }

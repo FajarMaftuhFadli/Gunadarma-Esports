@@ -6,6 +6,7 @@ import image1 from "../../images/image1.jpg";
 
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Anchor from "../Anchor";
 
 export default function News() {
   return (
@@ -35,6 +36,7 @@ export default function News() {
       </div>
 
       <span className="text-outline-only">NEWS</span>
+      <Anchor id="NEWS" />
     </Section>
   );
 }

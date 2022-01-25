@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 
 import Image from "next/image";
 import Section from "../Section";
+import Anchor from "../Anchor";
 
 export default function Content() {
   const [showVid, setshowVid] = useState({ isShow: false, vidId: "" });
@@ -37,6 +38,7 @@ export default function Content() {
       ) : (
         ""
       )}
+      <Anchor id="VIDEOS" />
     </Section>
   );
 }

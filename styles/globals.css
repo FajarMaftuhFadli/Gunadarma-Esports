@@ -101,6 +101,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .trans-gray {
   transition-property: filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

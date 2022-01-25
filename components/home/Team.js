@@ -4,6 +4,7 @@ import Section from "../Section";
 
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Anchor from "../Anchor";
 
 export default function Team() {
   return (
@@ -19,6 +20,7 @@ export default function Team() {
       </div>
 
       <span className="text-outline-only">TEAM</span>
+      <Anchor id="TEAM" />
     </Section>
   );
 }

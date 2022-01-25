@@ -3,6 +3,8 @@ import { useState, useEffect, useCallback } from "react";
 export default function Header() {
   const [showNav, setshowNav] = useState(false);
 
+  const link = ["NEWS", "ABOUT", "TEAM", "EVENTS", "VIDEOS", "CONTACT"];
+
   return (
     <header className="w-full fixed top-0 z-40 sm:top-2 sm:px-4">
       <nav className="flex py-4 g-px sm:px-4 justify-between items-center h-16 w-full max-w-6xl mx-auto g-bg1  border-b-2 border-orange-500 shadow-md sm:border-2">
@@ -21,39 +23,21 @@ export default function Header() {
             ))}
         </button>
         <ul className="hidden sm:flex space-x-4 font-semibold g-text-c4">
-          <li>
-            <a className=" hover:g-text-c3" href="">
-              TEAM
-            </a>
-          </li>
-          <li>
-            <a className=" hover:g-text-c3" href="">
-              ABOUT
-            </a>
-          </li>
-          <li>
-            <a className=" hover:g-text-c3" href="">
-              BLOG
-            </a>
-          </li>
-          <li>
-            <a className=" hover:g-text-c3" href="">
-              VIDEOS
-            </a>
-          </li>
-          <li>
-            <a className=" hover:g-text-c3" href="">
-              CONTACT
-            </a>
-          </li>
+          {link.map((v, i) => (
+            <li key={i}>
+              <a className=" hover:g-text-c3" href={`#${v}`}>
+                {v}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
-      {showNav ? <MobileNav setshowNav={setshowNav} /> : ""}
+      {showNav ? <MobileNav setshowNav={setshowNav} link={link} /> : ""}
     </header>
   );
 }
 
-function MobileNav({ setshowNav }) {
+function MobileNav({ setshowNav, link }) {
   const hide = useCallback(() => {
     setshowNav(false);
   }, [setshowNav]);
@@ -77,7 +61,6 @@ function MobileNav({ setshowNav }) {
       color: "bg-gray-900/95",
     });
   }, []);
-  const link = ["TEAM", "ABOUT", "BLOG", "VIDEOS", "CONTACT"];
 
   return (
     <div
@@ -102,7 +85,9 @@ function MobileNav({ setshowNav }) {
         <ul className="">
           {link.map((v, i) => (
             <li key={i} className="py-4 px-8 border-t-[1px] hover:g-text-c3">
-              <a href="#">{v}</a>
+              <a href={`#${v}`} onClick={willHide}>
+                {v}
+              </a>
             </li>
           ))}
         </ul>

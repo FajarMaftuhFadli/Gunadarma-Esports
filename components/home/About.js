@@ -3,6 +3,7 @@ import Section from "../Section";
 import Chevron_double_right from "./Chevron_double_right";
 
 import image1 from "../../images/image1.jpg";
+import Anchor from "../Anchor";
 
 export default function About() {
   return (
@@ -43,6 +44,8 @@ export default function About() {
         <br />
         US
       </span>
+
+      <Anchor id="ABOUT" />
     </Section>
   );
 }
