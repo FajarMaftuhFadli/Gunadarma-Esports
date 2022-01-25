@@ -79,7 +79,7 @@ function Play({ className }) {
 function ShowVid({ showVid, setshowVid }) {
   const turnOff = useCallback(() => {
     setshowVid({ isShow: false, vidId: "" });
-  }, [showVid]);
+  }, [showVid, setshowVid]);
 
   return (
     <div
@@ -108,7 +108,7 @@ function ShowVid({ showVid, setshowVid }) {
 function Video({ id, showVid, setshowVid, index }) {
   const showVideo = useCallback(() => {
     setshowVid({ isShow: true, vidId: id.toString() });
-  }, [showVid]);
+  }, [id, showVid, setshowVid]);
 
   const priority = index == 0 ? true : false;
 
