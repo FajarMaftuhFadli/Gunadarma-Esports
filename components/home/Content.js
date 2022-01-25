@@ -4,6 +4,10 @@ import Image from "next/image";
 import Section from "../Section";
 import Anchor from "../Anchor";
 
+/**
+ * This function renders a grid of videos.
+ * @returns The video id.
+ */
 export default function Content() {
   const [showVid, setshowVid] = useState({ isShow: false, vidId: "" });
 
@@ -21,7 +25,13 @@ export default function Content() {
         <h2 className="g-h2 g-text-c2 mb-5">VIDEOS</h2>
         <div className="w-full grid grid-cols-2 gap-4 sm:gap-8 md:gap-12 lg:gap-4 lg:grid-cols-4">
           {videoId.map((v, i) => (
-            <Video index={i} key={i} id={v} setshowVid={setshowVid} />
+            <Video
+              index={i}
+              key={i}
+              id={v}
+              showVid={showVid}
+              setshowVid={setshowVid}
+            />
           ))}
         </div>
         <a
@@ -43,6 +53,10 @@ export default function Content() {
   );
 }
 
+/**
+ * Create a SVG icon that looks like a play button.
+ * @returns A SVG component.
+ */
 function Play({ className }) {
   return (
     <svg
@@ -58,10 +72,14 @@ function Play({ className }) {
   );
 }
 
+/**
+ * It shows a video on the screen.
+ * @returns A function that takes in a callback function as an argument.
+ */
 function ShowVid({ showVid, setshowVid }) {
   const turnOff = useCallback(() => {
     setshowVid({ isShow: false, vidId: "" });
-  }, [setshowVid]);
+  }, [showVid]);
 
   return (
     <div
@@ -83,10 +101,14 @@ function ShowVid({ showVid, setshowVid }) {
   );
 }
 
-function Video({ id, setshowVid, index }) {
-  const showVid = useCallback(() => {
+/**
+ * It creates a button that when clicked, will show the video.
+ * @returns A button that when clicked, sets the state of the video to be shown.
+ */
+function Video({ id, showVid, setshowVid, index }) {
+  const showVideo = useCallback(() => {
     setshowVid({ isShow: true, vidId: id.toString() });
-  }, [setshowVid]);
+  }, [showVid]);
 
   const priority = index == 0 ? true : false;
 
@@ -95,7 +117,7 @@ function Video({ id, setshowVid, index }) {
       className={`w-full pt-[56.25%] relative group bg-gray-900 ${
         index == 0 ? "col-span-2 lg:row-span-2" : "col-span-1"
       }`}
-      onClick={showVid}
+      onClick={showVideo}
     >
       <Image
         src={`https://i3.ytimg.com/vi/${id}/maxresdefault.jpg`}

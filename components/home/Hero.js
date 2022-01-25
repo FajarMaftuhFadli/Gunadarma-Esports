@@ -2,6 +2,10 @@ import Image from "next/image";
 import hero_image from "../../images/hero_image.png";
 import ArrowDownAnim from "./ArrowDownAnim";
 
+/**
+ * This is the hero section of the website.
+ * @returns A section with an image and a text.
+ */
 export default function Hero() {
   return (
     <section className="relative w-full">

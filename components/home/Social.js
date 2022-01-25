@@ -4,6 +4,10 @@ import Instagram from "../social-icons/Instagram";
 import Line from "../social-icons/Line";
 import Youtube from "../social-icons/Youtube";
 
+/**
+ * It creates a list of social media icons.
+ * @returns The <section> element.
+ */
 export default function Social() {
   var social = [
     {

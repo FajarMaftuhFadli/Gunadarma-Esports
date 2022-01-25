@@ -6,6 +6,10 @@ import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Anchor from "../Anchor";
 
+/**
+ * This function creates a section with a title and a description.
+ * @returns A section with a h2 and a span.
+ */
 export default function Team() {
   return (
     <Section>
@@ -25,6 +29,10 @@ export default function Team() {
   );
 }
 
+/**
+ * This function returns a Swiper component with a pagination bar and a list of slides.
+ * @returns A Swiper component.
+ */
 function Slide() {
   const SwiperConfig = {
     modules: [Pagination],

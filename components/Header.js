@@ -1,5 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 
+/**
+ * This function renders the header of the website.
+ * @returns The header component.
+ */
 export default function Header() {
   const [showNav, setshowNav] = useState(false);
 
@@ -37,6 +41,10 @@ export default function Header() {
   );
 }
 
+/**
+ * It's a mobile navigation bar that appears when you click on the hamburger icon.
+ * @returns A function that returns a component.
+ */
 function MobileNav({ setshowNav, link }) {
   const hide = useCallback(() => {
     setshowNav(false);
