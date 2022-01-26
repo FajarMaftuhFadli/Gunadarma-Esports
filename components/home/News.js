@@ -59,8 +59,6 @@ function Slide() {
       },
     },
     className: "",
-    // onSwiper={(swiper) => console.log(swiper)}
-    // onSlideChange={() => console.log("slide change")}
     breakpoints: {
       640: {
         slidesPerView: 2,

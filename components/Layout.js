@@ -2,6 +2,10 @@ import Head from "next/head";
 import Footer from "./Footer";
 import Header from "./Header";
 
+/**
+ * This is the main layout component for the site.
+ * @returns A React component.
+ */
 export default function Layout({ children, pageTitle }) {
   return (
     <>
