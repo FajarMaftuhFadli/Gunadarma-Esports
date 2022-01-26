@@ -28,12 +28,13 @@ export default function Social() {
     },
   ];
 
-  var className = "fill-gray-200 hover:fill-orange-500 transition-colors";
+  var className =
+    "fill-gray-200 hover:fill-orange-500 transition-colors md:w-12 md:h-12 lg:w-14 lg:h-14";
 
   return (
-    <section className="w-full relative">
-      <div className="bg-[#1c2c42] p-8 pb-10 flex flex-col items-center">
-        <span className="text-outline text-[3rem] font-black text-transparent leading-none mb-6">
+    <section className="w-full relative z-10">
+      <div className="bg-[#1c2c42] p-8 pb-10 md:py-14 lg:py-16 flex flex-col items-center">
+        <span className="text-outline text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-black text-transparent leading-none mb-6">
           FOLLOW US
         </span>
         <div className="w-full">

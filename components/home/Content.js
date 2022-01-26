@@ -21,7 +21,7 @@ export default function Content() {
 
   return (
     <Section>
-      <div className="flex flex-col items-center mb-10">
+      <div className="flex flex-col items-center mb-28">
         <h2 className="g-h2 g-text-c2 mb-5">VIDEOS</h2>
         <div className="w-full grid grid-cols-2 gap-4 sm:gap-8 md:gap-12 lg:gap-4 lg:grid-cols-4">
           {videoId.map((v, i) => (
