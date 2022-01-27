@@ -93,7 +93,7 @@
   }
 
   .text-outline-only {
-    @apply text-[7rem] font-black text-transparent leading-none absolute text-right -top-14 right-2 -z-10 sm:text-[9rem] sm:-top-20 md:text-[11rem] md:-top-24 lg:text-[13rem] lg:-top-[7.5rem];
+    @apply text-[7rem] font-black text-transparent leading-none absolute text-left -top-12 left-4 -z-10 sm:text-[9rem] sm:-top-20 md:text-[11rem] md:-top-24 lg:text-[13rem] lg:-top-[7.5rem];
   }
 
   .btn-orange {

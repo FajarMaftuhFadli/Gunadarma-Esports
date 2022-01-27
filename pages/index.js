@@ -19,7 +19,8 @@ import Social from "../components/home/Social";
 import EmailUs from "../components/home/EmailUs";
 import BottomImage from "../components/home/BottomImage";
 
-export default function Home() {
+export default function Home({ data }) {
+  // console.log(data);
   return (
     <Layout pageTitle={"Home"}>
       <Head>
@@ -35,7 +36,7 @@ export default function Home() {
         />
       </Head>
       <Hero />
-      <News />
+      <News data={data} />
       <About />
       <Team />
       <Events />
@@ -48,4 +49,33 @@ export default function Home() {
       {/* <Widget /> */}
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const res = await fetch(
+    "https://fvcj49t2.api.sanity.io/v1/data/query/production?query=*%5B_type%20%3D%3D%20%22blog%22%5D%7C%20order(_createdAt%20desc)%7Btitle%2C%20_createdAt%2C%20slug%7Bcurrent%7D%2C%20image%7Balt%2C%20image%7Basset%7B_ref%7D%7D%7D%7D"
+  );
+  // *[_type == "blog"]{title, _createdAt, slug{current}, image{alt, caption, image{asset{_ref}}}, body}
+  const rawData = await res.json();
+
+  const data = rawData.result.map((v) => {
+    return {
+      title: v.title,
+      slug: v.slug.current,
+      date: v._createdAt,
+      image: {
+        alt: v.image.alt ? v.image.alt : "alt...",
+        url:
+          "https://cdn.sanity.io/images/fvcj49t2/production/" +
+          v.image.image.asset._ref
+            .replace(/image-/g, "")
+            .replace(/-(?!.*-)/g, "."),
+      },
+    };
+  });
+  return {
+    props: {
+      data,
+    },
+  };
 }

@@ -8,7 +8,11 @@ import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Anchor from "../Anchor";
 
-export default function News() {
+import moment from "moment";
+
+import Link from "next/link";
+
+export default function News({ data }) {
   return (
     <Section>
       <div className="flex justify-between items-center w-full">
@@ -21,7 +25,7 @@ export default function News() {
         </div>
       </div>
 
-      <Slide />
+      <Slide data={data} />
 
       <div className="w-full flex justify-between relative items-center">
         <div className="!h-[0.1rem] !bg-gray-100/20 pagination !relative !ml-[0.15rem] !mr-10"></div>
@@ -41,7 +45,7 @@ export default function News() {
   );
 }
 
-function Slide() {
+function Slide({ data }) {
   const SwiperConfig = {
     modules: [Navigation, Pagination],
     spaceBetween: 50,
@@ -70,35 +74,31 @@ function Slide() {
       },
     },
   };
-
   return (
     <Swiper {...SwiperConfig}>
-      {Array(5)
-        .fill()
-        .map((v, i) => (
-          <SwiperSlide
-            key={i}
-            className="g-text-c4 flex flex-col space-y-2 mb-5 sm:m-0 cursor-pointer"
-          >
-            <div className="relative w-full h-64 group hover-slide before:g-bg2 before:opacity-40 before:z-10 before:-left-7 before:-right-7">
-              <Image
-                src={image1}
-                layout="fill"
-                objectFit="cover"
-                priority
-                className="group-hover:scale-110 transition-transform duration-700 ease-out"
-                alt="test"
-              />
-              <div className="z-20 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  opacity-0 btn-orange tracking-wide">
-                READ
+      {data.map((v, i) => (
+        <SwiperSlide key={i}>
+          <Link href={`/post/${v.slug}`}>
+            <a className="g-text-c4 flex flex-col space-y-2 mb-5 cursor-pointer">
+              <div className="relative w-full h-64 group hover-slide before:g-bg2 before:opacity-40 before:z-10 before:-left-7 before:-right-7">
+                <Image
+                  src={v.image.url}
+                  layout="fill"
+                  objectFit="cover"
+                  priority
+                  className="group-hover:scale-110 transition-transform duration-700 ease-out"
+                  alt={v.image.alt}
+                />
+                <div className="z-20 px-6 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  opacity-0 btn-orange tracking-wide">
+                  READ
+                </div>
               </div>
-            </div>
-            <span>12/12/2021</span>
-            <h3 className="text-2xl font-semibold">
-              Lorem ipsum dolor sit amet
-            </h3>
-          </SwiperSlide>
-        ))}
+              <span>{moment(v.date).format("MMMM DD YYYY")}</span>
+              <h3 className="text-2xl font-semibold">{v.title}</h3>
+            </a>
+          </Link>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 }
