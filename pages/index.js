@@ -46,7 +46,7 @@ export default function Home({ data }) {
         <Social />
         <BottomImage />
       </div>
-      <Widget />
+      {/* <Widget /> */}
     </Layout>
   );
 }

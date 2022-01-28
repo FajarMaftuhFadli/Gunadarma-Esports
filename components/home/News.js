@@ -81,7 +81,6 @@ export default function News({ data }) {
                 </h3>
                 <div>
                   <BlockContent blocks={data[contents.index].body} />
-                  {console.log(data[contents.index].body)}
                 </div>
               </div>
             </div>
@@ -95,11 +94,6 @@ export default function News({ data }) {
 }
 
 function Slide({ data, setcontents }) {
-  // const [index, setindex] = useState(0);
-  // const showContent = useCallback(() => {
-  //   setcontents({ isShow: true, index: index });
-  // }, [setcontents]);
-
   const ShowContent = (i) =>
     useCallback(() => {
       setcontents({ isShow: true, index: i });

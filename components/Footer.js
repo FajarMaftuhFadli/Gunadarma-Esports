@@ -1,3 +1,6 @@
+import Image from "next/image";
+import logo from "../images/uge-logo.png";
+
 export default function Footer({ pageTitle }) {
   return pageTitle == "Home" ? (
     <footer className="max-w-[150rem] mx-auto w-full bg-[#1c2c42] relative">
@@ -15,7 +18,15 @@ export default function Footer({ pageTitle }) {
 
 const FooterBody = () => (
   <div className="g-max-w">
-    <h3 className="font-bold text-3xl tracking-wider g-text-c2">LOGO</h3>
+    <div className="h-20 w-20 relative mx-auto mb-5">
+      <Image
+        src={logo}
+        layout="fill"
+        objectFit="cover"
+        priority
+        alt="logo ug-e"
+      />
+    </div>
     <div className="w-full text-left flex justify-evenly space-x-2 text-sm sm:text-base">
       <div className="">
         <span className="text-lg font-bold g-text-c2">TEAM</span>
