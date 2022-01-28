@@ -100,10 +100,10 @@ function Slide({ data, setcontents }) {
   //   setcontents({ isShow: true, index: index });
   // }, [setcontents]);
 
-  const showContent = (i) =>
+  const ShowContent = (i) =>
     useCallback(() => {
       setcontents({ isShow: true, index: i });
-    }, [setcontents]);
+    }, [i, setcontents]);
 
   const SwiperConfig = {
     modules: [Navigation, Pagination],
@@ -139,7 +139,7 @@ function Slide({ data, setcontents }) {
         <SwiperSlide
           key={i}
           className="g-text-c4 flex flex-col space-y-2 mb-5 cursor-pointer"
-          onClick={showContent(i)}
+          onClick={ShowContent(i)}
         >
           <div className="relative w-full h-64 group hover-slide before:g-bg2 before:opacity-40 before:z-10 before:-left-7 before:-right-7">
             <Image
