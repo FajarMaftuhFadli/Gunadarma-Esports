@@ -53,7 +53,7 @@ export default function Home({ data }) {
 
 export async function getStaticProps() {
   const res = await fetch(
-    "https://fvcj49t2.api.sanity.io/v1/data/query/production?query=*%5B_type%20%3D%3D%20%22blog%22%5D%7Btitle%2C%20_createdAt%2C%20image%7Balt%2C%20image%7Basset%7B_ref%7D%7D%7D%2C%20body%7D%5B0..5%5D"
+    "https://fvcj49t2.api.sanity.io/v1/data/query/production?query=*%5B_type%20%3D%3D%20%22blog%22%5D%7C%20order(_createdAt%20desc)%7Btitle%2C%20_createdAt%2C%20image%7Balt%2C%20image%7Basset%7B_ref%7D%7D%7D%2C%20body%7D%5B0..5%5D"
   );
   // *[_type == "blog"]{title, _createdAt, slug{current}, image{alt, caption, image{asset{_ref}}}, body}
   const rawData = await res.json();
