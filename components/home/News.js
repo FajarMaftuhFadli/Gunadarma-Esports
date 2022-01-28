@@ -14,6 +14,16 @@ import BlockContent from "@sanity/block-content-to-react";
 export default function News({ data }) {
   const [contents, setcontents] = useState({ isShow: false, index: 0 });
 
+  // const serializers = {
+  //   types: {
+  //     figure: (props) => (
+  //       <pre data-language={props.node.language}>
+  //         <code>{props.node.code}</code>
+  //       </pre>
+  //     ),
+  //   },
+  // };
+
   return (
     <Section>
       <div className="flex justify-between items-center w-full">
@@ -85,6 +95,16 @@ export default function News({ data }) {
 }
 
 function Slide({ data, setcontents }) {
+  // const [index, setindex] = useState(0);
+  // const showContent = useCallback(() => {
+  //   setcontents({ isShow: true, index: index });
+  // }, [setcontents]);
+
+  const showContent = (i) =>
+    useCallback(() => {
+      setcontents({ isShow: true, index: i });
+    }, [setcontents]);
+
   const SwiperConfig = {
     modules: [Navigation, Pagination],
     spaceBetween: 50,
@@ -119,9 +139,7 @@ function Slide({ data, setcontents }) {
         <SwiperSlide
           key={i}
           className="g-text-c4 flex flex-col space-y-2 mb-5 cursor-pointer"
-          onClick={useCallback(() => {
-            setcontents({ isShow: true, index: i });
-          }, [setcontents])}
+          onClick={showContent(i)}
         >
           <div className="relative w-full h-64 group hover-slide before:g-bg2 before:opacity-40 before:z-10 before:-left-7 before:-right-7">
             <Image
