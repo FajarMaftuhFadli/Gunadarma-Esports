@@ -2,7 +2,7 @@ import Image from "next/image";
 import Section from "../Section";
 import Chevron_double_right from "./Chevron_double_right";
 
-import image1 from "../../images/image1.jpg";
+import image1 from "../../images/image-about.jpg";
 import Anchor from "../Anchor";
 
 import Link from "next/link";

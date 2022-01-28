@@ -29,23 +29,29 @@ function Slide() {
     },
   };
 
+  const list = [
+    "PUBGM PVP Campus Championship Indonesia dan SouthEast Asia 2021",
+    "Cyberathlete Collegiate Mobile Legends 2021",
+    "Fighter Campus 2021",
+    "Project Next MLBB 2021",
+    "Liga Mahasiswa 2021",
+  ];
+
   return (
     <Swiper {...SwiperConfig}>
-      {Array(5)
-        .fill()
-        .map((v, i) => (
-          <SwiperSlide
+      {list.map((v, i) => (
+        <SwiperSlide
+          key={i}
+          className="flex flex-col items-center text-center g-text-c4"
+        >
+          <div
             key={i}
-            className="flex flex-col items-center text-center g-text-c4"
-          >
-            <div
-              key={i}
-              className="w-28 h-28 bg-red-400 rounded-full mb-3"
-            ></div>
-            <h3 className="font-semibold uppercase">Lorem ipsum 2021</h3>
-            <span>1st place</span>
-          </SwiperSlide>
-        ))}
+            className="w-28 h-28 bg-[#1c2c42] rounded-full mb-3"
+          ></div>
+          <h3 className="font-semibold uppercase">{v}</h3>
+          {/* <span>1st place</span> */}
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 }

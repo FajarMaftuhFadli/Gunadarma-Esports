@@ -30,7 +30,7 @@ export default function Events() {
                   <span className="font-semibold">MOBILE LEGEND</span>
                 </div>
                 <h3 className="font-semibold text-lg mb-1 sm:bd-0">
-                  Tournament Lorem ipsum dolor sit Lorem ipsum dolor sit {++i}
+                  Tournament Mahasiswa Nasional {++i}
                 </h3>
                 <div>
                   <span className="sm:hidden">12 DESEMBER - 18:00</span>

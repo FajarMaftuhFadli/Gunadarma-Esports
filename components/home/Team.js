@@ -1,5 +1,5 @@
 import Image from "next/image";
-import image1 from "../../images/image1.jpg";
+import image1 from "../../images/game/ml.jpg";
 import Section from "../Section";
 
 import { Pagination } from "swiper";
