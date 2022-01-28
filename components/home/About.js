@@ -69,7 +69,7 @@ export default function About() {
               <div className="w-full h-[2px] bg-slate-500 group-hover:g-bg3 transition-colors rotate-45 translate-y-[0.05rem]"></div>
               <div className="w-full h-[2px] bg-slate-500 group-hover:g-bg3 transition-colors -rotate-45 -translate-y-[0.05rem]"></div>
             </button>
-            <div className="g-text-c4 w-full border-t-2 border-slate-700 p-4 max-h-[90vh] overflow-y-auto">
+            <div className="g-text-c4 w-full border-t-2 border-slate-700 p-4 max-h-[80vh] overflow-y-auto">
               <p>
                 Gunadarma Esports terbentuk pada tanggal 7 Oktober 2019 yang
                 dibentuk oleh Islamiati Nita Hidayat (Sastra Inggris). Pada
