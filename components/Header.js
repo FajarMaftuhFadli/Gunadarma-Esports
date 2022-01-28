@@ -10,8 +10,8 @@ export default function Header() {
   const link = ["NEWS", "ABOUT", "TEAM", "EVENTS", "VIDEOS", "CONTACT"];
 
   return (
-    <header className="w-full fixed top-0 z-40 sm:top-2 sm:px-4">
-      <nav className="flex py-4 g-px sm:px-4 justify-between items-center h-16 w-full max-w-6xl mx-auto g-bg1  border-b-2 border-orange-500 shadow-md sm:border-2">
+    <header className="z-10 w-full fixed top-0 sm:top-2 sm:px-4">
+      <nav className="flex py-4 g-px sm:px-4 justify-between items-center h-16 w-full max-w-6xl mx-auto g-bg1 border-b-2 border-orange-500 shadow-md sm:border-2">
         <h2 className="font-bold text-3xl tracking-wider g-text-c2">LOGO</h2>
         <button
           className="sm:hidden w-7 h-5 flex flex-col justify-between items-center group"
@@ -29,7 +29,7 @@ export default function Header() {
         <ul className="hidden sm:flex space-x-4 font-semibold g-text-c4">
           {link.map((v, i) => (
             <li key={i}>
-              <a className=" hover:g-text-c3" href={`#${v}`}>
+              <a className=" hover:g-text-c3" href={`/#${v}`}>
                 {v}
               </a>
             </li>
@@ -93,7 +93,7 @@ function MobileNav({ setshowNav, link }) {
         <ul className="">
           {link.map((v, i) => (
             <li key={i} className="py-4 px-8 border-t-[1px] hover:g-text-c3">
-              <a href={`#${v}`} onClick={willHide}>
+              <a href={`/#${v}`} onClick={willHide}>
                 {v}
               </a>
             </li>

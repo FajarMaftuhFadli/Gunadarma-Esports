@@ -25,10 +25,10 @@ export default function Hero() {
             <br />
             ESPORTS
           </h1>
-          <span className="font-semibold drop-shadow-md">
+          {/* <span className="font-semibold drop-shadow-md">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta,
             accusamus
-          </span>
+          </span> */}
         </div>
         <ArrowDownAnim />
         <div className="absolute -bottom-2 w-full h-12 flex justify-center items-center g-px">

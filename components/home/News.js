@@ -2,17 +2,18 @@ import Section from "../Section";
 import Chevron_double_right from "./Chevron_double_right";
 import Image from "next/image";
 
-import image1 from "../../images/image1.jpg";
-
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Anchor from "../Anchor";
 
 import moment from "moment";
 
-import Link from "next/link";
+import { useState, useCallback } from "react";
+import BlockContent from "@sanity/block-content-to-react";
 
 export default function News({ data }) {
+  const [contents, setcontents] = useState({ isShow: false, index: 0 });
+
   return (
     <Section>
       <div className="flex justify-between items-center w-full">
@@ -25,7 +26,7 @@ export default function News({ data }) {
         </div>
       </div>
 
-      <Slide data={data} />
+      <Slide data={data} setcontents={setcontents} />
 
       <div className="w-full flex justify-between relative items-center">
         <div className="!h-[0.1rem] !bg-gray-100/20 pagination !relative !ml-[0.15rem] !mr-10"></div>
@@ -41,11 +42,49 @@ export default function News({ data }) {
 
       <span className="text-outline-only">NEWS</span>
       <Anchor id="NEWS" />
+      {contents.isShow ? (
+        <div className="fixed top-0 left-0 w-full h-full bg-gray-900/95 z-[100] px-4 flex flex-col items-center justify-center">
+          <div
+            onClick={() => setcontents({ isShow: false, index: 0 })}
+            className="absolute top-0 left-0 right-0 bottom-0 -z-10"
+          ></div>
+          <div className="w-full lg:max-w-6xl md:max-w-2xl bg-[#1c2c42] flex flex-col items-end">
+            <button
+              onClick={() => setcontents({ isShow: false, index: 0 })}
+              className="w-5 h-3 flex flex-col justify-center items-center group m-3"
+            >
+              <div className="w-full h-[2px] bg-slate-500 group-hover:g-bg3 transition-colors rotate-45 translate-y-[0.05rem]"></div>
+              <div className="w-full h-[2px] bg-slate-500 group-hover:g-bg3 transition-colors -rotate-45 -translate-y-[0.05rem]"></div>
+            </button>
+            <div className="g-text-c4 h-[70vh] lg:h-[25rem] w-full overflow-y-auto lg:overflow-y-visible border-t-2 border-slate-700 p-4 lg:flex lg:space-x-4">
+              <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-full lg:w-1/2 mb-4 lg:mb-0">
+                <Image
+                  src={data[contents.index].image.url}
+                  layout="fill"
+                  objectFit="cover"
+                  alt={data[contents.index].image.alt}
+                />
+              </div>
+              <div className="lg:w-1/2 lg:overflow-y-auto">
+                <h3 className="text-2xl font-semibold mb-4">
+                  {data[contents.index].title}
+                </h3>
+                <div>
+                  <BlockContent blocks={data[contents.index].body} />
+                  {console.log(data[contents.index].body)}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </Section>
   );
 }
 
-function Slide({ data }) {
+function Slide({ data, setcontents }) {
   const SwiperConfig = {
     modules: [Navigation, Pagination],
     spaceBetween: 50,
@@ -77,26 +116,27 @@ function Slide({ data }) {
   return (
     <Swiper {...SwiperConfig}>
       {data.map((v, i) => (
-        <SwiperSlide key={i}>
-          <Link href={`/post/${v.slug}`}>
-            <a className="g-text-c4 flex flex-col space-y-2 mb-5 cursor-pointer">
-              <div className="relative w-full h-64 group hover-slide before:g-bg2 before:opacity-40 before:z-10 before:-left-7 before:-right-7">
-                <Image
-                  src={v.image.url}
-                  layout="fill"
-                  objectFit="cover"
-                  priority
-                  className="group-hover:scale-110 transition-transform duration-700 ease-out"
-                  alt={v.image.alt}
-                />
-                <div className="z-20 px-6 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  opacity-0 btn-orange tracking-wide">
-                  READ
-                </div>
-              </div>
-              <span>{moment(v.date).format("MMMM DD YYYY")}</span>
-              <h3 className="text-2xl font-semibold">{v.title}</h3>
-            </a>
-          </Link>
+        <SwiperSlide
+          key={i}
+          className="g-text-c4 flex flex-col space-y-2 mb-5 cursor-pointer"
+          onClick={useCallback(() => {
+            setcontents({ isShow: true, index: i });
+          }, [setcontents])}
+        >
+          <div className="relative w-full h-64 group hover-slide before:g-bg2 before:opacity-40 before:z-10 before:-left-7 before:-right-7">
+            <Image
+              src={v.image.url}
+              layout="fill"
+              objectFit="cover"
+              className="group-hover:scale-110 transition-transform duration-700 ease-out"
+              alt={v.image.alt}
+            />
+            <div className="z-20 px-6 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  opacity-0 btn-orange tracking-wide">
+              READ
+            </div>
+          </div>
+          <span>{moment(v.date).format("MMMM DD YYYY")}</span>
+          <h3 className="text-2xl font-semibold">{v.title}</h3>
         </SwiperSlide>
       ))}
     </Swiper>
